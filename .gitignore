@@ -11,3 +11,4 @@ __pycache__/attacks.cpython-39.pyc
 hw2-release.tar
 hw2.pdf
 dataset-full.npz
+trained-models/simple-cnn-free-adv-trained

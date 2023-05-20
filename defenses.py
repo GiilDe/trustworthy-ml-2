@@ -51,18 +51,19 @@ def free_adv_train(model, data_tr, criterion, optimizer, lr_scheduler,
             if delta is None:
                 delta = torch.zeros_like(data[0])
                 delta = delta.to(device)
-            if delta.shape != inputs.shape: # last batch
-                delta = delta[:inputs.shape[0]]
             for j in range(m):
                 # zero the parameter gradients
                 optimizer.zero_grad()
                 # forward + backward + optimize
-                outputs = model(inputs + delta)
+                outputs = model(inputs + delta if inputs.shape[0] == delta.shape[0] else inputs + delta[:inputs.shape[0]])
                 loss = criterion(outputs, labels)
                 loss.backward()
                 optimizer.step()
                 # update delta
-                delta = delta + inputs.grad.sign() * eps
+                if delta.shape[0] == inputs.shape[0]:
+                    delta = delta + inputs.grad.sign() * eps
+                else:
+                    delta[:inputs.shape[0]] = delta[:inputs.shape[0]] + inputs.grad.sign() * eps
                 delta = torch.clamp(delta, -eps, eps)
                 if (j+(i+epoch*len(loader_tr))*m) % scheduler_step_iters == 0:
                     lr_scheduler.step()
@@ -90,6 +91,7 @@ class SmoothedModel():
         array counting how many times each class was assigned the
         max confidence).
         """
+        counts = torch.zeros(4)
         for _ in range(n):
             # add noise to x - FILL ME
             noisy_x = x + torch.randn_like(x) * self.sigma
@@ -100,8 +102,9 @@ class SmoothedModel():
 
             # update class counts - FILL ME
             class_counts = torch.bincount(
-                classes, minlength=self.model.num_classes)
-            return class_counts
+                classes, minlength=4)
+            counts += class_counts
+        return counts
 
     def certify(self, x, n0, n, alpha, batch_size):
         """
@@ -122,12 +125,14 @@ class SmoothedModel():
         # find prediction (top class c) - FILL ME
         class_counts = self._sample_under_noise(x, n0, batch_size)
         c = class_counts.argmax().item()
-        counts = self._sample_under_noise(x, n, batch_size)
-
+        class_counts = self._sample_under_noise(x, n, batch_size)
         # compute lower bound on p_c - FILL ME
-        p_c = proportion_confint()
+        ci_low, _ = proportion_confint(class_counts[c], n, 1-alpha)
         # done
-        return c, radius
+        if ci_low > 0.5:
+            radius = norm.ppf(ci_low) * self.sigma
+            return c, radius
+        return self.ABSTAIN
 
 
 class NeuralCleanse:
