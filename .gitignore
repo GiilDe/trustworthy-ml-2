@@ -1,0 +1,13 @@
+trained-models/simple-cnn-sigma-0.2000
+trained-models/simple-cnn-sigma-0.0500
+trained-models/simple-cnn-part-c-1
+trained-models/simple-cnn-part-c-0
+__pycache__/utils.cpython-39.pyc
+__pycache__/models.cpython-39.pyc
+__pycache__/defenses.cpython-39.pyc
+__pycache__/consts.cpython-39.pyc
+__pycache__/attacks.cpython-39.pyc
+.vscode/launch.json
+hw2-release.tar
+hw2.pdf
+dataset-full.npz
