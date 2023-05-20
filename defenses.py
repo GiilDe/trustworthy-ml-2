@@ -50,6 +50,9 @@ def free_adv_train(model, data_tr, criterion, optimizer, lr_scheduler,
             inputs.requires_grad = True
             if delta is None:
                 delta = torch.zeros_like(data[0])
+                delta = delta.to(device)
+            if delta.shape != inputs.shape: # last batch
+                delta = delta[:inputs.shape[0]]
             for j in range(m):
                 # zero the parameter gradients
                 optimizer.zero_grad()
@@ -87,8 +90,18 @@ class SmoothedModel():
         array counting how many times each class was assigned the
         max confidence).
         """
-        # FILL ME
-        pass
+        for _ in range(n):
+            # add noise to x - FILL ME
+            noisy_x = x + torch.randn_like(x) * self.sigma
+
+            # classify x - FILL ME
+            dist = self.model(noisy_x)
+            classes = dist.argmax(dim=1)
+
+            # update class counts - FILL ME
+            class_counts = torch.bincount(
+                classes, minlength=self.model.num_classes)
+            return class_counts
 
     def certify(self, x, n0, n, alpha, batch_size):
         """
@@ -107,9 +120,12 @@ class SmoothedModel():
         """
 
         # find prediction (top class c) - FILL ME
+        class_counts = self._sample_under_noise(x, n0, batch_size)
+        c = class_counts.argmax().item()
+        counts = self._sample_under_noise(x, n, batch_size)
 
         # compute lower bound on p_c - FILL ME
-
+        p_c = proportion_confint()
         # done
         return c, radius
 
