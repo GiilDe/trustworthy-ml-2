@@ -6,7 +6,8 @@ from torch.utils.data import DataLoader
 from scipy.stats import norm
 from statsmodels.stats.proportion import proportion_confint
 
-def free_adv_train(model, data_tr, criterion, optimizer, lr_scheduler, \
+
+def free_adv_train(model, data_tr, criterion, optimizer, lr_scheduler,
                    eps, device, m=4, epochs=100, batch_size=128, dl_nw=10):
     """
     Free adversarial training, per Shafahi et al.'s work.
@@ -32,22 +33,24 @@ def free_adv_train(model, data_tr, criterion, optimizer, lr_scheduler, \
                            shuffle=True,
                            pin_memory=True,
                            num_workers=dl_nw)
-                           
 
     # init delta (adv. perturbation) - FILL ME
-    delta = torch.zeros_like(next(iter(loader_tr)), requires_grad=True)
+    delta = None
 
     # total number of updates - FILL ME
-    epochs = epochs/m
+    epochs = int(epochs/m)
 
     # when to update lr
     scheduler_step_iters = int(np.ceil(len(data_tr)/batch_size))
 
     # train - FILLE ME
-    for epoch in range(epochs): 
+    for epoch in range(epochs):
         for i, data in enumerate(loader_tr, 0):
             inputs, labels = data[0].to(device), data[1].to(device)
-            for j in range(m):                
+            inputs.requires_grad = True
+            if delta is None:
+                delta = torch.zeros_like(data[0])
+            for j in range(m):
                 # zero the parameter gradients
                 optimizer.zero_grad()
                 # forward + backward + optimize
@@ -58,6 +61,8 @@ def free_adv_train(model, data_tr, criterion, optimizer, lr_scheduler, \
                 # update delta
                 delta = delta + inputs.grad.sign() * eps
                 delta = torch.clamp(delta, -eps, eps)
+                if (j+(i+epoch*len(loader_tr))*m) % scheduler_step_iters == 0:
+                    lr_scheduler.step()
     # done
     return model
 
@@ -84,7 +89,7 @@ class SmoothedModel():
         """
         # FILL ME
         pass
-        
+
     def certify(self, x, n0, n, alpha, batch_size):
         """
         Arguments:
@@ -100,16 +105,14 @@ class SmoothedModel():
         - prediction / top class (ABSTAIN in case of abstaining)
         - certified radius (0. in case of abstaining)
         """
-        
+
         # find prediction (top class c) - FILL ME
-        
-        
+
         # compute lower bound on p_c - FILL ME
-        
 
         # done
         return c, radius
-        
+
 
 class NeuralCleanse:
     """
@@ -146,10 +149,8 @@ class NeuralCleanse:
         - trigger: 
         """
         # randomly initialize mask and trigger in [0,1] - FILL ME
-        
 
         # run self.niters of SGD to find (potential) trigger and mask - FILL ME
-        
 
         # done
         return mask, trigger
