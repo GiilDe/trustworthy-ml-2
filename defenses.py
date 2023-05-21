@@ -55,15 +55,13 @@ def free_adv_train(model, data_tr, criterion, optimizer, lr_scheduler,
                 # zero the parameter gradients
                 optimizer.zero_grad()
                 # forward + backward + optimize
-                outputs = model(inputs + delta if inputs.shape[0] == delta.shape[0] else inputs + delta[:inputs.shape[0]])
+                outputs = model(inputs + delta[:inputs.shape[0]])
                 loss = criterion(outputs, labels)
                 loss.backward()
                 optimizer.step()
                 # update delta
-                if delta.shape[0] == inputs.shape[0]:
-                    delta = delta + inputs.grad.sign() * eps
-                else:
-                    delta[:inputs.shape[0]] = delta[:inputs.shape[0]] + inputs.grad.sign() * eps
+                delta[:inputs.shape[0]] = delta[:inputs.shape[0]] + \
+                    inputs.grad.sign() * eps
                 delta = torch.clamp(delta, -eps, eps)
                 if (j+(i+epoch*len(loader_tr))*m) % scheduler_step_iters == 0:
                     lr_scheduler.step()
