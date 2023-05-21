@@ -91,9 +91,10 @@ class SmoothedModel():
         max confidence).
         """
         counts = torch.zeros(4).to(device=x.device)
-        for _ in range(n):
+        x = x.repeat(min(batch_size, n), 1, 1, 1)
+        for _ in range(int(np.ceil(n/batch_size))):
             # add noise to x - FILL ME
-            noisy_x = x + torch.randn_like(x) * self.sigma
+            noisy_x = x + torch.randn_like(x) * (self.sigma**2)
 
             # classify x - FILL ME
             dist = self.model(noisy_x)
@@ -185,8 +186,8 @@ class NeuralCleanse:
                 loss.backward()
                 # update mask and trigger
                 with torch.no_grad():
-                    mask = mask - self.step_size * mask.grad
-                    trigger = trigger - self.step_size * trigger.grad
+                    mask = mask - self.step_size * mask.grad.sign()
+                    trigger = trigger - self.step_size * trigger.grad.sign()
                     # project mask and trigger to [0,1]
                     mask = torch.clamp(mask, 0, 1)
                     trigger = torch.clamp(trigger, 0, 1)
