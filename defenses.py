@@ -55,6 +55,7 @@ def free_adv_train(model, data_tr, criterion, optimizer, lr_scheduler,
                 optimizer.zero_grad()
                 # forward + backward + optimize
                 noisy_x = inputs + delta[:inputs.shape[0]]
+                noisy_x = torch.clamp(noisy_x, 0, 1)
                 noisy_x.requires_grad = True
                 outputs = model(noisy_x)
                 loss = criterion(outputs, labels)
