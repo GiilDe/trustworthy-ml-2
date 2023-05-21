@@ -178,7 +178,8 @@ class NeuralCleanse:
                 x = x.to(device)
                 inputs = (1-mask)*x + mask*trigger
                 outputs = self.model(inputs)
-                loss = self.loss_func(outputs, c_t)
+                c_t_ = c_t*torch.ones(inputs.shape[0]).to(device)
+                loss = self.loss_func(outputs, c_t_)
                 loss.backward()
                 # update mask and trigger
                 mask = mask - self.step_size * mask.grad
