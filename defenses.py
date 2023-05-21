@@ -51,17 +51,19 @@ def free_adv_train(model, data_tr, criterion, optimizer, lr_scheduler,
             if delta is None:
                 delta = torch.zeros_like(data[0])
                 delta = delta.to(device)
+                delta.requires_grad = True
             for j in range(m):
                 # zero the parameter gradients
                 optimizer.zero_grad()
                 # forward + backward + optimize
-                outputs = model(inputs + delta[:inputs.shape[0]])
+                current_x = inputs + delta[:inputs.shape[0]]
+                outputs = model(current_x)
                 loss = criterion(outputs, labels)
                 loss.backward()
                 optimizer.step()
                 # update delta
                 delta[:inputs.shape[0]] = delta[:inputs.shape[0]] + \
-                    inputs.grad.sign() * eps
+                    current_x.grad.sign() * eps
                 delta = torch.clamp(delta, -eps, eps)
                 if (j+(i+epoch*len(loader_tr))*m) % scheduler_step_iters == 0:
                     lr_scheduler.step()
