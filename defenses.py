@@ -47,23 +47,22 @@ def free_adv_train(model, data_tr, criterion, optimizer, lr_scheduler,
     for epoch in range(epochs):
         for i, data in enumerate(loader_tr, 0):
             inputs, labels = data[0].to(device), data[1].to(device)
-            inputs.requires_grad = True
             if delta is None:
                 delta = torch.zeros_like(data[0])
                 delta = delta.to(device)
-                delta.requires_grad = True
             for j in range(m):
                 # zero the parameter gradients
                 optimizer.zero_grad()
                 # forward + backward + optimize
-                current_x = inputs + delta[:inputs.shape[0]]
-                outputs = model(current_x)
+                noisy_x = inputs + delta[:inputs.shape[0]]
+                noisy_x.requires_grad = True
+                outputs = model(noisy_x)
                 loss = criterion(outputs, labels)
                 loss.backward()
                 optimizer.step()
                 # update delta
                 delta[:inputs.shape[0]] = delta[:inputs.shape[0]] + \
-                    current_x.grad.sign() * eps
+                    noisy_x.grad.sign() * eps
                 delta = torch.clamp(delta, -eps, eps)
                 if (j+(i+epoch*len(loader_tr))*m) % scheduler_step_iters == 0:
                     lr_scheduler.step()
@@ -170,8 +169,10 @@ class NeuralCleanse:
         - trigger: 
         """
         # randomly initialize mask and trigger in [0,1] - FILL ME
-
+        mask = torch.rand(self.dim, requires_grad=True, device=device)
+        trigger = torch.rand(self.dim, requires_grad=True, device=device)
         # run self.niters of SGD to find (potential) trigger and mask - FILL ME
+
 
         # done
         return mask, trigger
