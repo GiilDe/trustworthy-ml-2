@@ -170,23 +170,26 @@ class NeuralCleanse:
         - trigger: 
         """
         # randomly initialize mask and trigger in [0,1] - FILL ME
-        mask = torch.rand(self.dim, requires_grad=True, device=device)
-        trigger = torch.rand(self.dim, requires_grad=True, device=device)
+        mask = torch.rand(self.dim).to(device)
+        trigger = torch.rand(self.dim).to(device)
         # run self.niters of SGD to find (potential) trigger and mask - FILL ME
         for _ in range(self.niters):
-            for x, _ in data_loader:
+            for x, _ in data_loader:                
                 x = x.to(device)
+                mask.requires_grad = True
+                trigger.requires_grad = True
                 inputs = (1-mask)*x + mask*trigger
                 outputs = self.model(inputs)
-                c_t_ = c_t*torch.ones(inputs.shape[0]).to(device)
+                c_t_ = c_t*torch.ones(inputs.shape[0], dtype=int).to(device)
                 loss = self.loss_func(outputs, c_t_)
                 loss.backward()
                 # update mask and trigger
-                mask = mask - self.step_size * mask.grad
-                trigger = trigger - self.step_size * trigger.grad
-                # project mask and trigger to [0,1]
-                mask = torch.clamp(mask, 0, 1)
-                trigger = torch.clamp(trigger, 0, 1)
+                with torch.no_grad():
+                    mask = mask - self.step_size * mask.grad
+                    trigger = trigger - self.step_size * trigger.grad
+                    # project mask and trigger to [0,1]
+                    mask = torch.clamp(mask, 0, 1)
+                    trigger = torch.clamp(trigger, 0, 1)
 
         # done
         return mask, trigger
