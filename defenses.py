@@ -91,9 +91,11 @@ class SmoothedModel():
         array counting how many times each class was assigned the
         max confidence).
         """
-        counts = torch.zeros(4).to(device=x.device)
+        counts = torch.zeros(4, dtype=int).to(device=x.device)
         x = x.repeat(min(batch_size, n), 1, 1, 1)
-        for _ in range(int(np.ceil(n/batch_size))):
+        for i in range(int(np.ceil(n/batch_size))):
+            if i == int(np.ceil(n/batch_size))-1:
+                x = x[:n % batch_size]
             # add noise to x - FILL ME
             noisy_x = x + torch.normal(mean=0, std=self.sigma, size=x.shape)
 
