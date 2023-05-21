@@ -95,7 +95,7 @@ class SmoothedModel():
         x = x.repeat(min(batch_size, n), 1, 1, 1)
         for _ in range(int(np.ceil(n/batch_size))):
             # add noise to x - FILL ME
-            noisy_x = x + torch.randn_like(x) * (self.sigma**2)
+            noisy_x = x + torch.normal(mean=0, std=self.sigma, size=x.shape)
 
             # classify x - FILL ME
             dist = self.model(noisy_x)
