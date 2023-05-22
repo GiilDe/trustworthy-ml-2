@@ -126,19 +126,19 @@ class SmoothedModel():
         - prediction / top class (ABSTAIN in case of abstaining)
         - certified radius (0. in case of abstaining)
         """
-
-        # find prediction (top class c) - FILL ME
-        class_counts = self._sample_under_noise(x, n0, batch_size)
-        c = class_counts.argmax().item()
-        class_counts = self._sample_under_noise(x, n, batch_size)
-        class_counts = class_counts.cpu()
-        # compute lower bound on p_c - FILL ME
-        ci_low, _ = proportion_confint(class_counts[c], n, 1-alpha)
-        # done
-        if ci_low > 0.5:
-            radius = norm.ppf(ci_low) * self.sigma
-            return c, radius
-        return self.ABSTAIN, self.ABSTAIN
+        with torch.no_grad():
+            # find prediction (top class c) - FILL ME
+            class_counts = self._sample_under_noise(x, n0, batch_size)
+            c = class_counts.argmax().item()
+            class_counts = self._sample_under_noise(x, n, batch_size)
+            class_counts = class_counts.cpu()
+            # compute lower bound on p_c - FILL ME
+            ci_low, _ = proportion_confint(class_counts[c], n, 1-alpha)
+            # done
+            if ci_low > 0.5:
+                radius = norm.ppf(ci_low) * self.sigma
+                return c, radius
+            return self.ABSTAIN, self.ABSTAIN
 
 
 class NeuralCleanse:
