@@ -97,7 +97,9 @@ class SmoothedModel():
             if i == int(np.ceil(n/batch_size))-1:
                 x = x[:n % batch_size]
             # add noise to x - FILL ME
-            noisy_x = x + torch.normal(mean=0, std=self.sigma, size=x.shape)
+            noisy_x = x + \
+                torch.normal(mean=0, std=self.sigma,
+                             size=x.shape).to(device=x.device)
 
             # classify x - FILL ME
             dist = self.model(noisy_x)
@@ -178,7 +180,7 @@ class NeuralCleanse:
         trigger = torch.rand(self.dim).to(device)
         # run self.niters of SGD to find (potential) trigger and mask - FILL ME
         for _ in range(self.niters):
-            for x, _ in data_loader:                
+            for x, _ in data_loader:
                 x = x.to(device)
                 mask.requires_grad = True
                 trigger.requires_grad = True
