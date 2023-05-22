@@ -133,7 +133,7 @@ class SmoothedModel():
             class_counts = self._sample_under_noise(x, n, batch_size)
             class_counts = class_counts.cpu()
             # compute lower bound on p_c - FILL ME
-            ci_low, _ = proportion_confint(class_counts[c], n, alpha)
+            ci_low, _ = proportion_confint(class_counts[c], n, 2*alpha, method='beta')
             # done
             if ci_low > 0.5:
                 radius = norm.ppf(ci_low) * self.sigma
