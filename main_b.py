@@ -59,12 +59,17 @@ def plot_radii(radii):
     x = [] # radius
     y = [] # accuracy
     # derive x and y from the certified radii - FILL ME
-    radii = sorted(radii)
-    for i, radius in enumerate(radii, 0):
-        while len(x) > 0 and radius == x[-1]:
-            continue
-        x.append(radius)
-        y.append((len(radii)-i)/len(radii))
+    orig_len = len(radii)
+    radii = [r for r in radii if r > 0]
+    x, counts = np.unique(radii, return_counts=True)
+
+    sum = 0
+    sums = np.empty_like(counts)
+    for i, c in enumerate(reversed(counts)):
+        sum += c
+        sums[len(counts)-1-i] = sum 
+
+    y = sums/orig_len   
     # plot
     plt.plot(x,y)
 
