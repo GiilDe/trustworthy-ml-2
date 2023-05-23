@@ -98,7 +98,6 @@ if __name__=='__main__':
     for m in range(4, 7):
         print(f"m = {m}")
         print('Training standard model...')
-        print(f'Time (in seconds) to complete standard training: {t:0.4f}')
         print('Adversarially training a model...')
         t = run_free_adv_training(m)
         print(f'Time (in seconds) to complete free adversarial training: {t:0.4f}')
