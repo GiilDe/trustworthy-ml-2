@@ -95,7 +95,7 @@ def run_evaluation(m):
         
 
 if __name__=='__main__':
-    for m in range(4, 7):
+    for m in range(4, 8):
         print(f"m = {m}")
         print('Training standard model...')
         print('Adversarially training a model...')
