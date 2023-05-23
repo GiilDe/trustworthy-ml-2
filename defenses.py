@@ -65,7 +65,8 @@ def free_adv_train(model, data_tr, criterion, optimizer, lr_scheduler,
                 delta[:inputs.shape[0]] = delta[:inputs.shape[0]] + \
                     noisy_x.grad.sign() * eps
                 delta = torch.clamp(delta, -eps, eps)
-                if (j+(i+epoch*len(loader_tr))*m) % scheduler_step_iters == 0:
+                iterations = (j+(i+epoch*len(loader_tr))*m)
+                if iterations % scheduler_step_iters == 0:
                     lr_scheduler.step()
     # done
     return model
@@ -133,7 +134,8 @@ class SmoothedModel():
             class_counts = self._sample_under_noise(x, n, batch_size)
             class_counts = class_counts.cpu()
             # compute lower bound on p_c - FILL ME
-            ci_low, _ = proportion_confint(class_counts[c], n, 2*alpha, method='beta')
+            ci_low, _ = proportion_confint(
+                class_counts[c], n, 2*alpha, method='beta')
             # done
             if ci_low > 0.5:
                 radius = norm.ppf(ci_low) * self.sigma
@@ -187,7 +189,8 @@ class NeuralCleanse:
                 inputs = (1-mask)*x + mask*trigger
                 outputs = self.model(inputs)
                 c_t_ = c_t*torch.ones(inputs.shape[0], dtype=int).to(device)
-                loss = self.loss_func(outputs, c_t_) + self.lambda_c * mask.sum()
+                loss = self.loss_func(outputs, c_t_) + \
+                    self.lambda_c * mask.sum()
                 loss.backward()
                 # update mask and trigger
                 with torch.no_grad():
