@@ -1,0 +1,6 @@
+Model accuracy:
+	- standard    : 0.9168
+	- adv_trained : 0.8225
+Success rate of untargeted white-box PGD:
+	- standard  : 0.9025
+	- adv_trained: 0.3695
