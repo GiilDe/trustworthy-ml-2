@@ -1,0 +1,13 @@
+Accuracy of model 0: 0.9168
+Accuracy of model 1: 0.9107
+Norm of trigger targeting class 0 in model 0: 149.3541
+Norm of trigger targeting class 1 in model 0: 129.8602
+Norm of trigger targeting class 2 in model 0: 167.6747
+Norm of trigger targeting class 3 in model 0: 142.3669
+Norm of trigger targeting class 0 in model 1: 33.9447
+Norm of trigger targeting class 1 in model 1: 139.7423
+Norm of trigger targeting class 2 in model 1: 173.0324
+Norm of trigger targeting class 3 in model 1: 152.6883
+Which model is backdoored (0/1)? 1
+Which class is the backdoor targeting (0/1/2/3)? 0
+Backdoor success rate: 0.9982
