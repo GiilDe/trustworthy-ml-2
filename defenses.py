@@ -65,7 +65,7 @@ def free_adv_train(model, data_tr, criterion, optimizer, lr_scheduler,
                 delta[:inputs.shape[0]] = delta[:inputs.shape[0]] + \
                     noisy_x.grad.sign() * eps
                 delta = torch.clamp(delta, -eps, eps)
-                iterations = (j+(i+epoch*len(loader_tr))*m)
+                iterations = j+(i+epoch*len(loader_tr))*m
                 if iterations % scheduler_step_iters == 0:
                     lr_scheduler.step()
     # done
