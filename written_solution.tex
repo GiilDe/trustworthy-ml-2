@@ -5,34 +5,34 @@
 \section{Question 1}
 \setcounter{subsection}{2}
 \subsection{}
-Time (in seconds) to complete standard training: 1359.3467. \\
-Time (in seconds) to complete free adversarial training: 372.3792.
+Time (in seconds) to complete standard training: 1381.1138. \\
+Time (in seconds) to complete free adversarial training: 386.9370.
 \subsection{}
 \begin{center}
 \begin{tabular}{||c c c||} 
     \hline
     Model/Task & Accuracy & PGD Success rate \\ [0.5ex] 
     \hline\hline
-    Standard & 0.9170 & 0.8928 \\ 
+    Standard & 0.9168 & 0.9025 \\ 
     \hline
-    Adv.-trained & 0.8087 & 0.3763 \\
+    Adv.-trained & 0.8225 & 0.3695 \\
     \hline 
 \end{tabular}
 \end{center}
-Adversarial training significantly decreases the PGD succees rate, i.e increases robustness with the price of a small decrease in accuracy.
+Adversarial training significantly decreases the PGD succees rate, i.e increases robustness with the price of a some (around 10\%) decrease in accuracy.
 \subsection{}
 \begin{center}
 \begin{tabular}{||c c c c||} 
     \hline
     m/metric & Time & Accuracy & PGD Success rate \\ [0.5ex] 
     \hline\hline
-    4 & 426.3014 & 0.8083 & 0.3790 \\ 
+    4 & 383.8422 & 0.8077 & 0.3808 \\ 
     \hline
-    5 & 351.1917 & 0.7847 & 0.3868 \\
+    5 & 323.3860 & 0.7900 & 0.3828 \\
     \hline
-    6 & 290.3951 & 0.7682 & 0.3953 \\
+    6 & 276.1508 & 0.7713 & 0.3963 \\
     \hline
-    7 & 268.9399 & 0.7483 & 0.4095 \\
+    7 & 258.2459 & 0.7460 & 0.4073 \\
     \hline 
 \end{tabular}
 \end{center}
@@ -55,6 +55,6 @@ trigger: \\
 \subsubsection{}
 Yes. The accuracy of Model 1 is only very slightly lower than that of Model 2 (0.9107 vs 0.9168).
 \subsubsection{}
-Very successful, its success rate is 0.9978.
+Very successful, its success rate is 0.9982.
 \end{document}
 

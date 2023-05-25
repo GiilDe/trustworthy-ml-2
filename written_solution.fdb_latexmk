@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1684917855 "/Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2/written_solution.tex" "written_solution.pdf" "written_solution" 1684917855
-  "/Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2/written_solution.tex" 1684917855 1728 35c1486d6ed8f5d7138550d3bafbbc9c ""
+["pdflatex"] 1685004006 "/Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2/written_solution.tex" "written_solution.pdf" "written_solution" 1685004007
+  "/Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2/written_solution.tex" 1685004006 1741 de7502e4484aa392329d103248ca3e1b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -24,11 +24,11 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1678987778 2826444 735361795e09a5eacffa80e2282256ba ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "backdoor-mask.jpg" 1684865501 729 a00cbccda23c9fc3d720ce4aab98631e ""
-  "backdoor-trigger.jpg" 1684865501 715 d66bd1efdf54f168f8c9b32ae8815de9 ""
+  "backdoor-mask.jpg" 1685003472 716 10e21a9e1544ec8cef3a2d590378ecb2 ""
+  "backdoor-trigger.jpg" 1685003472 701 95970b72ebc2313e2c16505c1b21f311 ""
   "randomized-smoothing-acc-vs-radius.pdf" 1684865548 15219 7486272d7d6f67a3e01d0c821e359f01 ""
-  "written_solution.aux" 1684917855 1178 7ab85e51657a4f38276ff5e0d1377597 "pdflatex"
-  "written_solution.tex" 1684917855 1728 35c1486d6ed8f5d7138550d3bafbbc9c ""
+  "written_solution.aux" 1685004007 1178 7ab85e51657a4f38276ff5e0d1377597 "pdflatex"
+  "written_solution.tex" 1685004006 1741 de7502e4484aa392329d103248ca3e1b ""
   (generated)
   "written_solution.aux"
   "written_solution.log"
