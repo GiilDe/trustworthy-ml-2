@@ -140,7 +140,7 @@ class SmoothedModel():
             if ci_low > 0.5:
                 radius = norm.ppf(ci_low) * self.sigma
                 return c, radius
-            return self.ABSTAIN, self.ABSTAIN
+            return self.ABSTAIN, 0.
 
 
 class NeuralCleanse:
