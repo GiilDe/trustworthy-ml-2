@@ -207,4 +207,4 @@ class NeuralCleanse:
                 trigger = torch.clamp(trigger, 0, 1)
 
         # done
-        return mask, trigger
+        return mask.repeat(1, x.shape[1], 1, 1) , trigger
