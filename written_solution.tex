@@ -40,8 +40,17 @@ It seems that both the benign accuracy, robustness and training time decrease as
 \section{Question 2}
 \setcounter{subsection}{1}
 \subsection{}
-\includegraphics[scale=0.7]{randomized-smoothing-acc-vs-radius.pdf}
-
+\includegraphics[scale=0.7]{randomized-smoothing-acc-vs-radius.pdf} \\
+Let us recall the equation that we've seen in class:
+$$R=\sigma \Phi^{-1}(p_c)$$
+where $R$ is the radius, $\sigma$ is the standard deviation of the Gaussian noise, 
+$\Phi^{-1}$ is the inverse of the CDF of the Gaussian distribution and 
+$p_c$ is the confidence level of class $c$. \\
+Note that there are two competing factors here: sigma multiplies the value of $R$, hence as $\sigma$ grows larger $R$ grows larger.
+On the other hand, as $\sigma$ grows larger, the Gaussian distribution becomes more spread out, this means that the probability of two 
+predictions having the same maximum class decreases, hence $p_c$ decreases, which in turn decreases $\Phi^{-1}(p_c)$. \\
+It seems that in the range of $\sigma$ that we've tested, the the lower value of $\sigma$, i.e $\sigma=0.05$ has higher accuracy
+for a given radius, i.e a larger number of samples with radii bigger then the radius. This means that the second factor we described dominates.
 \section{Question 3}
 \setcounter{subsection}{1}
 \subsection{}

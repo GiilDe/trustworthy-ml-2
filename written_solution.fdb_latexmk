@@ -1,13 +1,17 @@
 # Fdb version 3
-["pdflatex"] 1685004006 "/Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2/written_solution.tex" "written_solution.pdf" "written_solution" 1685004007
-  "/Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2/written_solution.tex" 1685004006 1741 de7502e4484aa392329d103248ca3e1b ""
+["pdflatex"] 1685120472 "/Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2/written_solution.tex" "written_solution.pdf" "written_solution" 1685120472
+  "/Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2/written_solution.tex" 1685120472 2689 72da45b2c084a3fc55181d4e8fd9d4d1 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls" 1636758526 20144 8a7de377ae7a11ee924a7499611f5a9d ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/base/size10.clo" 1636758526 8448 96f18c76bf608a36ee6fbf021ac1dd32 ""
@@ -27,8 +31,8 @@
   "backdoor-mask.jpg" 1685003472 716 10e21a9e1544ec8cef3a2d590378ecb2 ""
   "backdoor-trigger.jpg" 1685003472 701 95970b72ebc2313e2c16505c1b21f311 ""
   "randomized-smoothing-acc-vs-radius.pdf" 1684865548 15219 7486272d7d6f67a3e01d0c821e359f01 ""
-  "written_solution.aux" 1685004007 1178 7ab85e51657a4f38276ff5e0d1377597 "pdflatex"
-  "written_solution.tex" 1685004006 1741 de7502e4484aa392329d103248ca3e1b ""
+  "written_solution.aux" 1685120472 1178 08780edf5e3e92907e4a71f981aaad56 "pdflatex"
+  "written_solution.tex" 1685120472 2689 72da45b2c084a3fc55181d4e8fd9d4d1 ""
   (generated)
   "written_solution.aux"
   "written_solution.log"
