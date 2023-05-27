@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1685120472 "/Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2/written_solution.tex" "written_solution.pdf" "written_solution" 1685120472
-  "/Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2/written_solution.tex" 1685120472 2689 72da45b2c084a3fc55181d4e8fd9d4d1 ""
+["pdflatex"] 1685179014 "/Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2/written_solution.tex" "written_solution.pdf" "written_solution" 1685179014
+  "/Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2/written_solution.tex" 1685179014 2691 6d8e86cbcfe55b2d1bcb1d7bc2901a0e ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -28,11 +28,11 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1678987778 2826444 735361795e09a5eacffa80e2282256ba ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "backdoor-mask.jpg" 1685003472 716 10e21a9e1544ec8cef3a2d590378ecb2 ""
-  "backdoor-trigger.jpg" 1685003472 701 95970b72ebc2313e2c16505c1b21f311 ""
+  "backdoor-mask.jpeg" 1685128069 734 14e84d5237088de333c6d6577d49ca86 ""
+  "backdoor-trigger.jpeg" 1685128069 720 16ebe5d98b21de29451f5de692dfbfaf ""
   "randomized-smoothing-acc-vs-radius.pdf" 1684865548 15219 7486272d7d6f67a3e01d0c821e359f01 ""
-  "written_solution.aux" 1685120472 1178 08780edf5e3e92907e4a71f981aaad56 "pdflatex"
-  "written_solution.tex" 1685120472 2689 72da45b2c084a3fc55181d4e8fd9d4d1 ""
+  "written_solution.aux" 1685179014 1178 08780edf5e3e92907e4a71f981aaad56 "pdflatex"
+  "written_solution.tex" 1685179014 2691 6d8e86cbcfe55b2d1bcb1d7bc2901a0e ""
   (generated)
   "written_solution.aux"
   "written_solution.log"
