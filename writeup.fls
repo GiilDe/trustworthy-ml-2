@@ -2,8 +2,8 @@ PWD /Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2
 INPUT /usr/local/texlive/2022/texmf.cnf
 INPUT /usr/local/texlive/2022/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2/written_solution.tex
-OUTPUT written_solution.log
+INPUT /Users/giladdeutsch/Projects/trustworthy-ml/trustworthy-ml-2/writeup.tex
+OUTPUT writeup.log
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
@@ -82,10 +82,10 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.de
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT ./written_solution.aux
-INPUT written_solution.aux
-INPUT written_solution.aux
-OUTPUT written_solution.aux
+INPUT ./writeup.aux
+INPUT writeup.aux
+INPUT writeup.aux
+OUTPUT writeup.aux
 INPUT /usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -114,7 +114,7 @@ INPUT ./randomized-smoothing-acc-vs-radius.pdf
 INPUT ./randomized-smoothing-acc-vs-radius.pdf
 INPUT randomized-smoothing-acc-vs-radius.pdf
 INPUT ./randomized-smoothing-acc-vs-radius.pdf
-OUTPUT written_solution.pdf
+OUTPUT writeup.pdf
 INPUT ./randomized-smoothing-acc-vs-radius.pdf
 INPUT /usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
@@ -128,7 +128,7 @@ INPUT ./backdoor-trigger.jpeg
 INPUT backdoor-trigger.jpeg
 INPUT ./backdoor-trigger.jpeg
 INPUT ./backdoor-trigger.jpeg
-INPUT written_solution.aux
+INPUT writeup.aux
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
